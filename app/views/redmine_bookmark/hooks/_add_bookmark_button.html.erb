@@ -1,5 +1,11 @@
 <div id="redmine_bookmark_action_menu" style="display: none">
-  <%= link_to l(:button_add_redmine_bookmark), '/tbd', class: 'icon icon-fav' %>
+  <%=
+    link_to l(:button_add_redmine_bookmark),
+      add_redmine_bookmark_path(id: @issue, format: 'js'),
+      class: 'icon icon-fav',
+      method: 'post',
+      data: { remote: true }
+  %>
 </div>
 
 <%= javascript_tag do %>
