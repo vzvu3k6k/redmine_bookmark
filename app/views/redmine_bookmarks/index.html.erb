@@ -1,5 +1,13 @@
 <h2><%= t(:label_redmine_bookmarks) %></h2>
 
-<p class="nodata">
-  <%= l(:label_no_data) %>
-</p>
+<% if @bookmarks.exists? %>
+  <ul>
+    <% @bookmarks.find_each do |bookmark| %>
+      <li><%= link_to_issue(bookmark.issue) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p class="nodata">
+    <%= l(:label_no_data) %>
+  </p>
+<% end %>
