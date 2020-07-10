@@ -1,2 +1,3 @@
-# Plugin's routes
-# See: http://guides.rubyonrails.org/routing.html
+# frozen_string_literal: true
+
+get 'redmine_bookmarks', to: 'redmine_bookmarks#index'
