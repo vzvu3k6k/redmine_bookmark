@@ -1,0 +1,11 @@
+<div id="redmine_bookmark_action_menu" style="display: none">
+  <%= link_to l(:button_redmine_bookmark_bookmark), '/tbd', class: 'icon icon-fav' %>
+</div>
+
+<%= javascript_tag do %>
+  $(function() {
+    var $favButton = $('.contextual').find('.icon-fav, .icon-fav-off');
+    var $bookmarkButton = $('#redmine_bookmark_action_menu').children();
+    $bookmarkButton.insertAfter($favButton);
+  });
+<% end %>

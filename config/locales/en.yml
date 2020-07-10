@@ -1,2 +1,4 @@
 en:
+  button_redmine_bookmark_bookmark: Bookmark
+  button_redmine_bookmark_unbookmark: Unbookmark
   label_redmine_bookmarks: Bookmarks
