@@ -2,9 +2,12 @@
 
 class RedmineBookmarksController < ApplicationController
   before_action :require_login
-  before_action :find_bookmarks, :find_issue, only: %i[add remove]
+  before_action :find_bookmarks, only: %i[index add remove]
+  before_action :find_issue, only: %i[add remove]
 
-  def index; end
+  def index
+    @bookmarks = @bookmarks.includes(:issue).order(id: :desc)
+  end
 
   def add
     @bookmarks.create(issue: @issue)
