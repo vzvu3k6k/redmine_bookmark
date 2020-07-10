@@ -1,17 +1,15 @@
 <div id="redmine_bookmark_action_menu" style="display: none">
-  <%=
-    link_to l(:button_add_redmine_bookmark),
-      add_redmine_bookmark_path(id: @issue, format: 'js'),
-      class: 'icon icon-fav',
-      method: 'post',
-      data: { remote: true }
-  %>
+  <%= redmine_bookmark_button(@issue) %>
 </div>
 
 <%= javascript_tag do %>
   $(function() {
-    var $favButton = $('.contextual').find('.icon-fav, .icon-fav-off');
-    var $bookmarkButton = $('#redmine_bookmark_action_menu').children();
-    $bookmarkButton.insertAfter($favButton);
+    var $favButtons = $('.contextual').children('.icon-fav, .icon-fav-off');
+    var $bookmarkButtonContainer = $('#redmine_bookmark_action_menu');
+    var $bookmarkButton = $bookmarkButtonContainer.find('a');
+    $favButtons.each(function() {
+      $bookmarkButton.clone().insertAfter($(this));
+    });
+    $bookmarkButtonContainer.remove();
   });
 <% end %>
