@@ -5,4 +5,8 @@ Redmine::Plugin.register :redmine_bookmark do
   version '0.0.1'
   url 'http://example.com/path/to/plugin'
   author_url 'http://example.com/about'
+
+  menu :top_menu,
+       :redmine_bookmarks,
+       controller: :redmine_bookmarks, action: :index
 end
